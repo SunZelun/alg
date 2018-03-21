@@ -124,12 +124,11 @@ def binary_search(array, element):
     middle_element = array[len(array)/2] if len(array) >= 1 else None
 
     while middle_element != element:
-        middle_element = array[len(array) / 2] if len(array) >= 1 else None
-        array = array[:len(array) / 2] if middle_element < element else array[len(array) / 2:]
+        array = array[:len(array) / 2] if middle_element > element else array[len(array) / 2:]
 
         return binary_search(array, element)
 
-    print "Found element on key: " + str(len(array)/2)
+    print "Found element: " + str(element)
 
 
 numbers = []
@@ -171,7 +170,6 @@ now = time.time()
 print shell_sort(sh_number)
 print "shell spent: " + str(time.time()-now)
 
-sh_number = list(numbers)
 now = time.time()
-print shell_sort(sh_number)
+binary_search(sh_number, numbers[0])
 print "binary search: " + str(time.time()-now)
